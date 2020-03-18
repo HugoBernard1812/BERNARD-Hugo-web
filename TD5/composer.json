@@ -1,0 +1,14 @@
+{
+
+  "require": {   "illuminate/database": "5.5.*",
+                  "php": ">=7.0.0"},
+  "name" : "etuapp",
+  "type" : "project",
+
+  "autoload": {
+    "psr-4": {
+      "etuapp\\" : "src/etuapp",
+      "conf\\" : "conf"
+    }
+  }
+}
