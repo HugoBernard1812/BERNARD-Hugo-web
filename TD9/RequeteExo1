@@ -1,0 +1,60 @@
+<?php
+
+require_once 'vendor/autoload.php';
+
+use \db.config.ini.sample;
+use \ConnectionExo1.php;
+
+$st = $db->prepare('SELECT id, liste_id, nom, descr, img, url, tarif
+                    FROM item');
+
+$st->execute();
+
+$st = $db->prepare('INSERT into item (id, liste_id, nom, descr, img, url, tarif)
+                    VALUES (100,	2,	'Musique',	'Partitions de piano à 4 mains',	'musique.jpg',	'',	25.00)');
+
+$st->execute(array($id, $liste_id, $nom, $descr, $img, $url, $tarif ) );
+
+$st = $db->prepare('SELECT no, user_id, titre, description, expiration, token
+                    FROM liste');
+
+$st->execute();
+
+
+$sql = 'SELECT * FROM item';
+try {
+  $stmt = $dbh->prepare($sql);
+  $stmt->execute()
+
+  while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+    print $row ['id'];
+    print $row ['liste_id'];
+    print $row ['nom'];
+    print $row ['descr'];
+    print $row ['img'];
+    print $row ['url'];
+    print $row ['tarif'];
+    }
+  while ($row = $stmt->fetch(PDO::FETCH_OBJ)){
+    print $row->id;
+    print $row->liste_id;
+    print $row->nom;
+    print $row->descr;
+    print $row->img;
+    print $row->url;
+    print $row->tarif;
+    }
+  foreach($stmt->fetchAll(PDO::FETCH_NUM)as $row){
+    print $row[0];
+    print $row[1];
+    print $row[2];
+    print $row[3];
+    print $row[4];
+    print $row[5];
+    print $row[6];
+    }
+  }catch (PDOEXception $e){
+    print $e->getMessage();
+  }
+
+?>

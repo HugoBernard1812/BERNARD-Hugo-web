@@ -1,0 +1,5 @@
+driver=mysql
+username=bernar276u
+password=GloBeauX128
+host=localhost
+database=mywishlist
