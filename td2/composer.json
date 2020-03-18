@@ -1,0 +1,9 @@
+{
+  "name": "tableauapp",
+  "type": "project",
+  "autoload": {
+    "psr-4": {
+      "tabapp\\": "tabapp"
+    }
+  }
+}
